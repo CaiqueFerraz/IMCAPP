@@ -1,0 +1,7 @@
+{
+  "name": "IMCAPP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
