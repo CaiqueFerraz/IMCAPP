@@ -1,20 +1,88 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+<section class="principal">
+    <ion-card class="tabela">
+        <ion-grid>
+            <ion-item-divider class="divisao">
+                <ion-row class="tabDescricao">
+                    <ion-col size="6" class="descricao">
+                        ZONA</ion-col>
+                    <ion-col size="3" class="descricao">IMC</ion-col>
+                    <ion-col size="3" class="descricao">KG</ion-col>
+                </ion-row>
+            </ion-item-divider>
+            <ion-row class="tabValores" id="ob3">
+                <ion-col size="6" class="valores"> Obeso Classe 3</ion-col>
+                <ion-col size="3" class="valores">
+                    < 40 </ion-col>
+                        <ion-col size="3" class="valores">
+                            > 110</ion-col>
+            </ion-row>
+            <ion-row class="tabValores" id="ob2">
+                <ion-col size="6" class="valores">Obeso Classe 2</ion-col>
+                <ion-col size="3" class="valores">
+                    35-40 </ion-col>
+                <ion-col size="3" class="valores">
+                    96~110</ion-col>
+            </ion-row>
+            <ion-row class="tabValores" id="ob1">
+                <ion-col size="6" class="valores">Obeso Classe 1</ion-col>
+                <ion-col size="3" class="valores">
+                    30-35 </ion-col>
+                <ion-col size="3" class="valores">
+                    83~96</ion-col>
+            </ion-row>
+            <ion-row class="tabValores" id="excesso">
+                <ion-col size="6" class="valores">Excesso de peso</ion-col>
+                <ion-col size="3" class="valores">
+                    25-30 </ion-col>
+                <ion-col size="3" class="valores">
+                    69~83</ion-col>
+            </ion-row>
+            <ion-row class="tabValores" id="normal">
+                <ion-col size="6" class="valores">Normal</ion-col>
+                <ion-col size="3" class="valores">
+                    18,5-25 </ion-col>
+                <ion-col size="3" class="valores">
+                    51~69</ion-col>
+            </ion-row>
+            <ion-row class="tabValores" id="abaixo">
+                <ion-col size="6" class="valores">Abaixo do peso</ion-col>
+                <ion-col size="3" class="valores">
+                    17-18,50 </ion-col>
+                <ion-col size="3" class="valores">
+                    47~51</ion-col>
+            </ion-row>
+            <ion-row class="tabValores" id="severamente">
+                <ion-col size="6" class="valores">Severamente abaixo do peso</ion-col>
+                <ion-col size="3" class="valores">
+                    < 17 </ion-col>
+                        <ion-col size="3" class="valores">
+                            < 47</ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+    <ion-card class="informacoes">
+        <ion-card-header>
+            <ion-select (ionChange)="alteraMedida()" [(ngModel)]="umPeso" class="opPeso" value="kg">
+                <ion-select-option value="kg">kg</ion-select-option>
+            </ion-select>
+            <ion-select (ionChange)="alteraMedida()" [(ngModel)]="umAltura" class="opAltura" value="cm">
+                <ion-select-option value="cm">cm</ion-select-option>
+            </ion-select>
+        </ion-card-header>
+        {{message}}
+        <ion-card-content class="medidas">
+            <ion-label class="lblPeso">Peso: {{peso}} {{umPeso}}</ion-label>
+            <ion-range (ionChange)="calculaImc()" [(ngModel)]="peso" min="1" max="200" step="1" color="danger" class="peso" value="100">
+                <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+                <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-range>
+            <ion-label class="lblAltura">
+                Altura: {{altura}} {{umAltura}}
+            </ion-label>
+            <ion-range (ionChange)="calculaImc()" [(ngModel)]="altura" min="1" color="danger" max="200" step="1" class="altura" value="100">
+                <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+                <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-range>
+        </ion-card-content>
+    </ion-card>
+</section>
